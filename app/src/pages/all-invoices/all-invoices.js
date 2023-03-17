@@ -5,12 +5,14 @@ const AllInvoices = () => {
   const [allInvoices, setAllInvoices] = useState([]);
 
   const getAllInvoices = async () => {
-    await fetch('http://localhost:3010/all-invoice').then(response => {
-      response.json().then(data => {
-        console.log(data);
-        setAllInvoices(data);
-      });
-    });
+    await fetch('https://invoice-server.onrender.com/all-invoice').then(
+      response => {
+        response.json().then(data => {
+          console.log(data);
+          setAllInvoices(data);
+        });
+      }
+    );
   };
 
   useEffect(() => {
@@ -62,16 +64,6 @@ const AllInvoices = () => {
         </tbody>
       </table>
     </div>
-    // <div>
-    //   <div style={{ padding: 20 }}>{listItems}</div>
-    //   <div>
-    //     {/* <Routes>
-    //       <Route path='/invoice/1' Component={<Invoice />}></Route>
-    //     </Routes> */}
-    //     <Link to='/about'>Click to view our about page</Link>
-    //     <button> Invoice</button>
-    //   </div>
-    // </div>
   );
 };
 

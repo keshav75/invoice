@@ -81,7 +81,7 @@ const Invoice = () => {
 
   useEffect(() => {
     // Fetch invoice details from API
-    fetch(`http://localhost:3010/${id}`)
+    fetch(`https://invoice-server.onrender.com/${id}`)
       .then(response => response.json())
       .then(data => {
         setInvoiceDetails(data);
