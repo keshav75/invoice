@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
+// Middleware : Trigger on every request, execute in order
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

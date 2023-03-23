@@ -11,13 +11,11 @@ router.get('/', function (req, res, next) {
 router.get('/all-invoice', async function (req, res) {
   let collection = db.collection('invoiceSchema');
   let results = await collection.find({}).limit(50).toArray();
-  console.log(results);
   res.status(200).json(results);
 });
 
 router.post('/create-invoice', async (req, res) => {
-  console.log(db);
-  let collection = await db.collection('invoiceSchema');
+  let collection = db.collection('invoiceSchema');
   let newDocument = req.body;
   newDocument.date = new Date();
   let result = await collection.insertOne(newDocument);

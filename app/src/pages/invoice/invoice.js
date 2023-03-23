@@ -46,7 +46,7 @@ const Invoice = () => {
     const encodedParams = new URLSearchParams();
     encodedParams.set('allow_repeated_payments', 'false');
     encodedParams.set('send_email', 'false');
-    encodedParams.set('amount', invoiceDetails?.amount);
+    encodedParams.set('amount', 1000);
     encodedParams.set('purpose', 'digital payment');
 
     const options = {
@@ -55,7 +55,13 @@ const Invoice = () => {
       headers: {
         accept: 'application/json',
         Authorization: `Bearer ${accessToken}`,
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'DELETE, POST, GET, OPTIONS',
+        'Access-Control-Allow-Headers':
+          'Content-Type, Authorization, X-Requested-With',
+        'Sec-Fetch-Site': 'cross-site',
+        ' Sec-Fetch-Mode': 'cors'
       },
       data: encodedParams
     };
