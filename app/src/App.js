@@ -10,14 +10,7 @@ function App() {
         <header className='App-header'>
           <Routes>
             <Route path='/' element={<AllInvoices />} />
-            <Route
-              path='/invoice/:id'
-              element={
-                <>
-                  <Invoice />
-                </>
-              }
-            />
+            <Route path='/invoice/:id' element={<Invoice />} />
           </Routes>
         </header>
       </BrowserRouter>

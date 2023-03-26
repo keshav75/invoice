@@ -39,7 +39,7 @@ router.get('/:id', async function (req, res) {
   else res.status(200).json(result);
 });
 
-router.post('/:id/webhook', async (req, res) => {
+router.post('/webhook/:id', async (req, res) => {
   let collection = db.collection('invoiceSchema');
   console.log(req.body);
   try {
@@ -89,7 +89,7 @@ router.get('/:id/payment', async (req, res) => {
     );
     encodedParams.set(
       'webhook',
-      `https://harmonious-gelato-98a10c.netlify.app//${req.params.id}/webhook`
+      `https://invoice-server.onrender.com/webhook/${req.params.id}`
     );
 
     const options = {
