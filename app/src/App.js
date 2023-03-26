@@ -1,8 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import AllInvoices from './pages/all-invoices/all-invoices';
 import Invoice from './pages/invoice/invoice';
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (

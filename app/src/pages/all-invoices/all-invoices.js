@@ -5,14 +5,12 @@ const AllInvoices = () => {
   const [allInvoices, setAllInvoices] = useState([]);
 
   const getAllInvoices = async () => {
-    await fetch('https://invoice-server.onrender.com/all-invoice').then(
-      response => {
-        response.json().then(data => {
-          console.log(data);
-          setAllInvoices(data);
-        });
-      }
-    );
+    await fetch('http://localhost:3010/all-invoice').then(response => {
+      response.json().then(data => {
+        console.log(data);
+        setAllInvoices(data);
+      });
+    });
   };
 
   useEffect(() => {
