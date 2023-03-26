@@ -85,11 +85,11 @@ router.get('/:id/payment', async (req, res) => {
     encodedParams.set('purpose', 'digital payment');
     encodedParams.set(
       'redirect_url',
-      `https://invoice-server.onrender.com/invoice/${req.params.id}`
+      `https://harmonious-gelato-98a10c.netlify.app/invoice/${req.params.id}`
     );
     encodedParams.set(
       'webhook',
-      ` https://invoice-server.onrender.com/${req.params.id}/webhook`
+      `https://harmonious-gelato-98a10c.netlify.app//${req.params.id}/webhook`
     );
 
     const options = {

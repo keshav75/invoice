@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { redirect, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 const Invoice = () => {
   const [paymentStatus, setPaymentStatus] = useState('unpaid');
 
   const [invoiceDetails, setInvoiceDetails] = useState(null);
 
-  const [accessToken, setAccessToken] = useState(null);
-
   const { id } = useParams();
 
   const handlePayment = async () => {
-    fetch(` http://localhost:3010/${id}/payment`)
+    fetch(`https://invoice-server.onrender.com/${id}/payment`)
       .then(response => response.json())
       .then(data => {
         setInvoiceDetails(data.result);
@@ -26,7 +23,7 @@ const Invoice = () => {
 
   useEffect(() => {
     // Fetch invoice details from API
-    fetch(` http://localhost:3010/${id}`)
+    fetch(`https://invoice-server.onrender.com/${id}`)
       .then(response => response.json())
       .then(data => {
         setInvoiceDetails(data);
