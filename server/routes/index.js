@@ -44,7 +44,7 @@ router.post('/webhook/:id', async (req, res) => {
   console.log(req.body);
   try {
     const invoice = collection.findOneAndUpdate(
-      { _id: new ObjectId(req.params._id) },
+      { _id: new ObjectId(req.params.id) },
       {
         $set: {
           paymentStatus: 'paid',
