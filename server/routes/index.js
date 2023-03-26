@@ -85,11 +85,11 @@ router.get('/:id/payment', async (req, res) => {
     encodedParams.set('purpose', 'digital payment');
     encodedParams.set(
       'redirect_url',
-      `http://localhost:3000/invoice/${req.params.id}`
+      `https://invoice-server.onrender.com/invoice/${req.params.id}`
     );
     encodedParams.set(
       'webhook',
-      ` https://e33d-110-235-229-236.in.ngrok.io/${req.params.id}/webhook`
+      ` https://invoice-server.onrender.com/${req.params.id}/webhook`
     );
 
     const options = {
@@ -113,7 +113,6 @@ router.get('/:id/payment', async (req, res) => {
       .request(options)
       .then(function (response) {
         var result = response.data;
-        console.log('---------->', response.data);
         return res.status(200).send({ result });
       })
       .catch(function (error) {
@@ -142,7 +141,6 @@ router.get('/:id/payment', async (req, res) => {
     .request(options)
     .then(response => response)
     .then(data => {
-      // console.log('@@@@@', data.data.access_token);
       var access_token = data.data.access_token;
       createPaymentRequest(access_token);
     })
